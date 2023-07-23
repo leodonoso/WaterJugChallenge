@@ -1,0 +1,14 @@
+<h2 class="flex-center">Data</h2>
+<div class="flex-center">
+    <ul *ngIf="problemData">
+        <li>Bucket X: {{ problemData.x }}</li>
+        <li>Bucket Y: {{ problemData.y }}</li>
+        <li>User measure (Z): {{ problemData.z }}</li>
+    </ul>
+</div>
+
+<h2 class="flex-center">Solution</h2>
+
+<div class="flex-center btn-container">
+    <a routerLink="/userInput" class="btn">Reset</a>
+</div>

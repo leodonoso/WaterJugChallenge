@@ -1,0 +1,11 @@
+header {
+    background-color: var(--nav-color);
+    padding: 1em 0;
+}
+
+a.logo {
+    color: var(--text-color);
+    cursor: default;
+    text-decoration: none;
+    font-weight: 900;
+}

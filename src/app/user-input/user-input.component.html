@@ -1,0 +1,18 @@
+<h2 class="flex-center">User Input</h2>
+<form #basicForm="ngForm" (submit)="getData(basicForm.value)" class="flex-center" style="flex-direction: column;">
+    <label for="x">How many gallons of water can Bucket X hold?</label> <br>
+    <input type="number" ngModel name="x" placeholder="{{ problemData.x }}"> <br>
+    <label for="y">How many gallons of water can Bucket Y hold?</label> <br>
+    <input type="number" ngModel name="y" placeholder="{{ problemData.y }}"> <br>
+    <label for="z">How many gallons of water do you want to measure? (Z)</label> <br>
+    <input type="number" ngModel name="z" placeholder="{{ problemData.z }}" > <br>
+    <button class="btn">Submit</button>
+</form>
+
+<div class="flex-center btn-container">
+    <a routerLink="/" class="btn">Previous</a>
+    <a routerLink="/solution" class="btn">Next</a>
+</div>
+
+<!-- TO DO -->
+<!-- Make validation for the forms: Input can't be a float or a negative number. -->
