@@ -1,5 +1,16 @@
 # WaterJugChallenge
 
+This is a SPA that calculates the solution to the popular Water Jug Challenge.
+
+It takes 3 values from the user:
+* X: The amount of water gallons that a Water Bucket X can store.
+* Y: The amount of water gallons that a Water Bucket Y can store.
+* Z: The amount of water gallons that the user wishes to measure.
+
+The programs explains the solution to the problem and it provides the number of operations necessary to get to the target measurement.
+
+In case the problem has no possible solution, the program will communicate that to the user.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
 
 ## Development server
