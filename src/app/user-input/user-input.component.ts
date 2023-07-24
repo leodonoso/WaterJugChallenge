@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, Validators, FormControl } from '@angular/forms';
 import { ProblemDataService } from '../problem-data.service';
 
 @Component({
@@ -8,7 +8,10 @@ import { ProblemDataService } from '../problem-data.service';
   styleUrls: ['./user-input.component.css']
 })
 export class UserInputComponent implements OnInit {
-  name: string = '';
+  x: number;
+  y: number;
+  z: number;
+
   problemData: any;
 
   constructor(private _problemData: ProblemDataService) { }

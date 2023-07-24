@@ -1,18 +1,17 @@
 <h2 class="flex-center">User Input</h2>
-<form #basicForm="ngForm" (submit)="getData(basicForm.value)" class="flex-center" style="flex-direction: column;">
+<form #userForm="ngForm" class="flex-center" style="flex-direction: column;">
     <label for="x">How many gallons of water can Bucket X hold?</label> <br>
-    <input type="number" ngModel name="x" placeholder="{{ problemData.x }}"> <br>
+    <input type="number" [(ngModel)]="x" ngModel name="x" value="{{ problemData.x || 0 }}"> <br>
+    <span *ngIf="userForm.value.x <= 0" class="invalid-input">Invalid input</span>
     <label for="y">How many gallons of water can Bucket Y hold?</label> <br>
-    <input type="number" ngModel name="y" placeholder="{{ problemData.y }}"> <br>
+    <input type="number" [(ngModel)]="y" ngModel name="y" value="{{ problemData.y || 0 }}"> <br>
+    <span *ngIf="userForm.value.y <= 0" class="invalid-input">Invalid input</span>
     <label for="z">How many gallons of water do you want to measure? (Z)</label> <br>
-    <input type="number" ngModel name="z" placeholder="{{ problemData.z }}" > <br>
-    <button class="btn">Submit</button>
+    <input type="number" [(ngModel)]="z" ngModel name="z" value="{{ problemData.z || 0 }}" > <br>
+    <span *ngIf="userForm.value.z <= 0" class="invalid-input">Invalid input</span>
 </form>
 
 <div class="flex-center btn-container">
     <a routerLink="/" class="btn">Previous</a>
-    <a routerLink="/solution" class="btn">Next</a>
+    <a routerLink="/solution" [class.active]="userForm.value.x > 0 && userForm.value.y > 0 && userForm.value.z > 0" class="btn submit-btn" (click)="getData(userForm.value)">Next</a>
 </div>
-
-<!-- TO DO -->
-<!-- Make validation for the forms: Input can't be a float or a negative number. -->

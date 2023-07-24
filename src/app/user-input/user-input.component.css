@@ -1,0 +1,13 @@
+.submit-btn {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.invalid-input {
+    color: red;
+}

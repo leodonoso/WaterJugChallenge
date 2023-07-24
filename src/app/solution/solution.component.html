@@ -1,5 +1,5 @@
 <h2 class="flex-center">Data</h2>
-<div class="flex-center">
+<div class="flex-center container">
     <ul *ngIf="problemData">
         <li>Bucket X: {{ problemData.x }}</li>
         <li>Bucket Y: {{ problemData.y }}</li>
@@ -7,7 +7,33 @@
     </ul>
 </div>
 
-<h2 class="flex-center">Solution</h2>
+<div class="flex-center container" style="flex-direction: column;">
+    <ng-template [ngIf]="isSolvable" [ngIfElse]="noSolution">
+        <ng-template [ngIf]="isBestSolution" [ngIfElse]="solutionB">
+            <h2 class="flex-center">Solution A</h2>
+            <ol>
+                <li>1.- Fill the biggest gallon jug ({{ n }} gallons).</li>
+                <li>2.- Pour the water from the biggest gallon jug ({{ n }} gallons) into the smallest one. ({{ m }} gallons).</li>
+                <li>3.- Empty the smallest gallon jug ({{ m }} gallons).</li>
+                <li>4.- Repeat steps 1 to 3 until you're done.</li>
+                <li>Total number of steps <strong>{{ bestSolutionSteps }}</strong>. You'll be left with <strong>{{ d }}</strong> gallons of water.</li>
+            </ol>
+        </ng-template>
+        <ng-template #solutionB>
+            <h2 class="flex-center">Solution B</h2>
+            <ol>
+                <li>1.- Fill the smallest gallon jug. ({{ m }} gallons)</li>
+                <li>2.- Pour the water from the smallest gallon jug ({{ m }} gallons) into the biggest one. ({{ n }} gallons)</li>
+                <li>3.- Repeat until the biggest gallon jug ({{ n }} gallons) it's full.</li>
+                <li>4.- If necesarry, empty the biggest gallon jug ({{ n }} gallons) and keep repeating.</li>
+                <li>Total number of steps: <strong>{{ bestSolutionSteps }} </strong>. You'll be left with <strong>{{ d }}</strong> gallons of water.</li>
+            </ol>
+        </ng-template>
+    </ng-template>
+    <ng-template #noSolution>
+        <h2>This problem does not have a solution.</h2>
+    </ng-template>
+</div>
 
 <div class="flex-center btn-container">
     <a routerLink="/userInput" class="btn">Reset</a>
